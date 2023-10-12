@@ -13,8 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package guestbook;
+package guestbook.controller;
 
+import guestbook.GuestbookForm;
+import guestbook.model.GuestbookEntry;
+import guestbook.persistence.GuestbookRepository;
 import io.github.wimdeblauwe.hsbt.mvc.HtmxResponse;
 import io.github.wimdeblauwe.hsbt.mvc.HxRequest;
 import jakarta.validation.Valid;
@@ -41,7 +44,7 @@ import org.springframework.web.server.ResponseStatusException;
  * @author Oliver Drotbohm
  */
 @Controller
-class GuestbookController {
+public class GuestbookController {
 
 	private final GuestbookRepository guestbook;
 
@@ -51,7 +54,7 @@ class GuestbookController {
 	 *
 	 * @param guestbook must not be {@literal null}
 	 */
-	GuestbookController(GuestbookRepository guestbook) {
+	public GuestbookController(GuestbookRepository guestbook) {
 
 		Assert.notNull(guestbook, "Guestbook must not be null!");
 		this.guestbook = guestbook;
@@ -77,7 +80,7 @@ class GuestbookController {
 	 * @return a view name
 	 */
 	@GetMapping(path = "/guestbook")
-	String guestBook(Model model, @ModelAttribute(binding = false) GuestbookForm form) {
+	public String guestBook(Model model, @ModelAttribute(binding = false) GuestbookForm form) {
 
 		model.addAttribute("entries", guestbook.findAll());
 		model.addAttribute("form", form);

@@ -15,6 +15,8 @@
  */
 package guestbook;
 
+import guestbook.controller.GuestbookController;
+import guestbook.model.GuestbookEntry;
 import jakarta.validation.constraints.NotBlank;
 
 /**
@@ -27,7 +29,7 @@ import jakarta.validation.constraints.NotBlank;
  * @author Oliver Drotbohm
  * @see GuestbookController#addEntry(GuestbookForm, org.springframework.validation.Errors, org.springframework.ui.Model)
  */
-class GuestbookForm {
+public class GuestbookForm {
 
 	private final @NotBlank String name;
 	private final @NotBlank String text;
@@ -76,7 +78,7 @@ class GuestbookForm {
 	 * @return the newly created {@link GuestbookEntry}
 	 * @throws IllegalArgumentException if you call this on an instance without the name and text actually set.
 	 */
-	GuestbookEntry toNewEntry() {
+	public GuestbookEntry toNewEntry() {
 		return new GuestbookEntry(getName(), getText());
 	}
 }

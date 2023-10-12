@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package guestbook;
+package guestbook.persistence;
 
+import guestbook.model.GuestbookEntry;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.util.Streamable;
@@ -26,7 +27,7 @@ import org.springframework.data.util.Streamable;
  * @see https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks
  * @see https://spring.io/projects/spring-data-jpa
  */
-interface GuestbookRepository extends CrudRepository<GuestbookEntry, Long> {
+public interface GuestbookRepository extends CrudRepository<GuestbookEntry, Long> {
 
 	/**
 	 * Returns all {@link GuestbookEntry}s created by the user with the given name, sorted by the given sort criteria.

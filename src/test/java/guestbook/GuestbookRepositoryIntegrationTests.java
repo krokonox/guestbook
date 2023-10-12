@@ -17,6 +17,8 @@ package guestbook;
 
 import static org.assertj.core.api.Assertions.*;
 
+import guestbook.model.GuestbookEntry;
+import guestbook.persistence.GuestbookRepository;
 import jakarta.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;

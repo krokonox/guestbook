@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package guestbook;
+package guestbook.model;
 
 import java.time.LocalDateTime;
 
@@ -31,7 +31,7 @@ import org.springframework.util.Assert;
  * @see https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks
  */
 @Entity
-class GuestbookEntry {
+public class GuestbookEntry {
 
 	private @Id @GeneratedValue Long id;
 	private final String name, text;

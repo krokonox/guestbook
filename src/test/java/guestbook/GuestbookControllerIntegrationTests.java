@@ -20,6 +20,9 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import guestbook.controller.GuestbookController;
+import guestbook.model.GuestbookEntry;
+import guestbook.persistence.GuestbookRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -37,7 +40,8 @@ import org.springframework.test.web.servlet.MockMvc;
 public class GuestbookControllerIntegrationTests {
 
 	@Autowired MockMvc mvc;
-	@Autowired GuestbookRepository repository;
+	@Autowired
+	GuestbookRepository repository;
 
 	@Test // #58
 	void redirectsToLoginPageForSecuredResource() throws Exception {

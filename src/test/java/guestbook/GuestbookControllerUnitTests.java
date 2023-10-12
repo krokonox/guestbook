@@ -18,6 +18,9 @@ package guestbook;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import guestbook.controller.GuestbookController;
+import guestbook.model.GuestbookEntry;
+import guestbook.persistence.GuestbookRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -34,7 +37,8 @@ import org.springframework.ui.Model;
 @ExtendWith(MockitoExtension.class)
 class GuestbookControllerUnitTests {
 
-	@Mock GuestbookRepository guestbook;
+	@Mock
+	GuestbookRepository guestbook;
 
 	@Test
 	void populatesModelForGuestbook() {
