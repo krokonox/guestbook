@@ -88,7 +88,7 @@ public class Application {
 		public void addViewControllers(ViewControllerRegistry registry) {
 
 			// Route requests to /login to the login view (a default one provided by Spring Security)
-			registry.addViewController("/login").setViewName("login");
+			registry.addViewController("/login").setViewName("custom_login");
 		}
 
 		@Bean

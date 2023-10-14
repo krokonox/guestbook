@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,6 +31,16 @@ public class RegistrationController {
         user.setPassword(passwordEncoder.encode(password));
         userRepository.save(user);
 
-        return "redirect:/login";
+        return "redirect:/custom_login";
+    }
+
+    @GetMapping("/user/{username}")
+    public String getUser(@PathVariable String username) {
+        UserEntity user = userRepository.findByUsername(username);
+        if (user != null) {
+            return "User " + user.getUsername() + " exists in the database.";
+        } else {
+            return "User not found.";
+        }
     }
 }

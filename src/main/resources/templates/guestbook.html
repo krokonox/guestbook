@@ -12,7 +12,7 @@
 <body>
 <h1 class="text-center" th:text="#{guestbook.title}">Gästebuch</h1>
 <div class="text-center">
-	<a sec:authorize="isAnonymous()" href="/login">Login</a>
+	<a sec:authorize="isAnonymous()" th:href="@{/custom_login}">Login</a>
 	<a th:href="@{/register}">Register</a>
 	<a sec:authorize="isAuthenticated()" href="/logout">Logout</a>
 </div>
